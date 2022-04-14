@@ -1,30 +1,57 @@
 <?php
-//configuracion , define() se usa para crear una variable constante en PHP
-define("HOST", "localhost"); // hosting
-define("USER", "root"); // User de la bd
-define("PASS", "");
-define("DBNAME", "menu"); // nombre de la base de daros
-define("PORT", 3306); // puerto por el que se conecta a base de datos
 
-class DB extends mysqli{ // clase que extiende de mysqli la cual se encarga de la conexion a la DB
-	protected static $instance; // variable estatica para la conexion
+require_once __DIR__."./conexion.php";
 
-	public function __construct($host,$user,$pass,$dbname,$port) { // constructor de la clase
-        mysqli_report(MYSQLI_REPORT_OFF);
-        @parent::__construct($host,$user,$pass,$dbname,$port); // LLAMA A mysqli y le pasa los argumentos
-        if( mysqli_connect_errno() ) { // por si ocurre un error
-            throw new exception(mysqli_connect_error(), mysqli_connect_errno()); 
-        }
 
-    }
-
-	public static function getDBConnection(){ // funcion estatica para la conexion
-		if( !self::$instance ) {// se pregunta si instance ya tiene valor
-            self::$instance = new self(HOST,USER,PASS,DBNAME,PORT); // se crea la conexion y se guarda en instance
-            $consulta = "SET CHARACTER SET UTF8";
-			self::$instance->query($consulta);
-        }
-        return self::$instance;		// se retorna la conexion
-	}
-	
+function doQuery($consulta){ // funcion para ejecutar las consultas.
+    $db = db::getDBConnection(); // obtengo la conexion la cual tiene la instancia de esta 
+    print("holaaaa");
+    return $db->query($consulta);  // devuelvo la consulta
 }
+
+function getCard($cardName){
+    $consulta = "SELECT * FROM productos WHERE nombre='".$cardName."'"; // CONSULTA PARA TRAER SOLO UNA CARTA 
+    return doQuery($consulta); 
+}
+
+
+function getCards(){ // obtengo todas las Cards
+    $consulta = "SELECT * FROM productos";
+    print($consulta."<br>");
+    return doQuery($consulta);
+}
+
+function createCard($cardName,$desc,$precio,$imagen){ // Crear nuevo item
+    $consulta = "INSERT INTO productos (nombre,descripcion,imagen,precio) VALUE("
+        ."'".$cardName."', "
+        ."'".$desc."', "
+        ."'".$imagen."', "
+        ."'".$precio."')";
+        
+    print($consulta."<br>");  
+    return doQuery($consulta);
+}
+
+
+function updateCard($cardName,$newCardName,$desc,$precio,$imagen=""){
+    if($imagen!=""){
+        $consulta = "UPDATE productos SET "
+        ."nombre='".$newCardName."',"
+        ."descripcion='".$desc."',"
+        ."imagen='".$imagen."',"
+        ."precio='".$precio."' "
+        ."WHERE nombre='".$cardName."'";
+    }else { 
+        $consulta = "UPDATE productos SET "
+			."nombre='".$newCardName."',"
+			."descripcion='".$desc."',"
+			."precio='".$precio."' "
+			."WHERE nombre='".$cardName."'";
+		}
+    print($consulta."<br>");
+    
+    return doQuery($consulta);
+
+}
+
+?>
