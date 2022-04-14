@@ -1,9 +1,11 @@
 <?php
 
-require_once "./conexion.php";
+require_once __DIR__."./conexion.php";
+
 
 function doQuery($consulta){ // funcion para ejecutar las consultas.
     $db = db::getDBConnection(); // obtengo la conexion la cual tiene la instancia de esta 
+    print("holaaaa");
     return $db->query($consulta);  // devuelvo la consulta
 }
 
@@ -26,8 +28,7 @@ function createCard($cardName,$desc,$precio,$imagen){ // Crear nuevo item
         ."'".$imagen."', "
         ."'".$precio."')";
         
-    print($consulta."<br>");
-    
+    print($consulta."<br>");  
     return doQuery($consulta);
 }
 

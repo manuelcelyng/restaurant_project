@@ -32,3 +32,4 @@ class DB extends mysqli{ // clase que extiende de mysqli la cual se encarga de l
 
 // nota: los metodos estaticos y variables estaticas que están en una clase, nos da la posibilidad de acceder a ellas sin necesidad de instanciar un objeto, por eso se hace de esta manera. asi podremos obtener la conexion, y al mismo tiempo usar el objeto para hacer las peticiones
 
+?>
