@@ -50,8 +50,12 @@
                     <input type="number" name="precio" value="<?php print($Card['precio'])?>" required><br>
             </label>
 
-            <img src="<?php print($Card['imagen'])?>" width=200>
-			<label for="lname">Imagen:</label><br><input type="file" name="imagen"><br><br>
+            <!--AGREGO ESTE INPUT PARA TENER EL NAME DE LA IMAGEN anterior, y borrarla-->
+            <input type="text" name="imagenAnterior" value="<?php print($Card['imagen'])?>" hidden>
+            <!-- le mando el ID para actualizar la imagen con la nueva que se ponga-->
+            <input type="text" name="id" value="<?php print($Card['id'])?>" hidden>
+            <img src="<?php print($Card['imagen'])?>" width=200><br>
+			<label for="lname">Imagen:</label><input type="file" name="imagen"><br><br>
 				<?php }?>
 			
 			
