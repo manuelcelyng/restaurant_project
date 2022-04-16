@@ -19,7 +19,7 @@
 		<?php
 		if(isset($_GET['error'])){
 			if($_GET['error']==1){
-				print("<p class='error'>No se logró guardar la nueva tarjeta. Verifique la información</p>");
+				print("<p class='error'>No se logró guardar el nuevo item. Verifique la información, no puede crear un nuevo item con el mismo nombre de otro.</p>");
 			}
 		}
 		?>
