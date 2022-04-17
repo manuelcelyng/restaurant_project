@@ -1,6 +1,6 @@
 <?php
 	require_once "../controlador.php";
-
+	comprobarSesion();
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,34 @@
+<?php
+
+	require_once "./controlador.php";
+
+	function createUser($nameUser,$password,$email){
+		$consulta = "INSERT INTO usuarios (nombre,password,email) VALUE("
+			."'".$nameUser."', "
+			."'".$password."', "
+			."'".$email."')";
+			
+		return doquery($consulta);
+	}
+
+
+	if(isset($_POST['user'])!= ""){
+		$Respuesta =  createUser($_POST['user'],$_POST['pass'], $_POST['email']);
+		if(!$Respuesta){
+			header("Location: registro.php?error=1");
+		}
+		else{
+			header("Location: index.php");
+		}
+
+	}
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,54 +37,21 @@
 	<title>registro</title>
 </head>
 <body>
-	<h1>Formulario</h1>
-	<form action="registro.php" method="post" enctype="multipart/form-data">
-		<label>Nombre</label><input type="text" name="user" required>
-		<label>Contraseña</label><input type="password" name="pass" required><br><br>
-
-		<label>Archivo</label><input type="file" name="arch1"><br><br>
-		<label>Archivo</label><input type="file" name="arch2"><br><br>
-		<label>Archivo</label><input type="file" name="arch3"><br><br>
-
-		<input type="submit" name="enviar" value="Enviar">
-	</form>
-
-
-    <h3>FILES</h3>
 	<?php
-	/*
-	$_FILES[file][propiedades]
+		if(isset($_GET['error'])){
 
-	$_FILES[arch1][name,type,tmp_name,err,size]
-	$_FILES[arch2][name,type,tmp_name,err,size]
-	$_FILES[arch3][name,type,tmp_name,err,size]
-
-	$_FILES[
-		arch1 => [name:"", type:"", tmp_name:"", err: ,size:""]
-		arch2 => [name:"", type:"", tmp_name:"", err: ,size:""]
-		arch3 => [name:"", type:"", tmp_name:"", err: ,size:""]
-	]
-	*/
-	print($_FILES['arch1']['name']."<br>");
-	print($_FILES['arch1']['type']."<br>");
-
-	#$cont = 0;
-	foreach ($_FILES as $vbleName => $file) {
-		print($vbleName."<br>");
-		foreach ($file as $prop => $value) {
-			print("   ".$prop." => ".$value."<br>");
+			if($_GET['error']==1){
+				print("<p><span>Verifique los campos </span></p>");
+			}
 		}
-		print("<br>");
-		#$file = $_FILES['arch1']
-		if($file['error']==0){
-			#$cont++;
-			#$destino = "archivo".$cont.".jpg"; 
-			$origen  = $file['tmp_name']; // nos da la ruta origen 
-			$destino = "images/".$file['name'];
-			move_uploaded_file($origen, $destino);
-		}
-	}
 	?>
+	<h1>Formulario</h1>
+	<form action="registro.php" method="post">
+		<label>Nombre:	</label><input type="text" name="user" required><br><br>
+		<label>Contraseña:	</label><input type="password" name="pass" required><br><br>
+		<label>Correo:	</label><input type="email" name="email" required><br><br>
+		<input type="submit" name="CrearUser" value="Enviar">
+	</form>
 </body>
 </html>
 

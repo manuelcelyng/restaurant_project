@@ -1,5 +1,8 @@
 <?php
     require_once "../controlador.php";
+    comprobarSesion();
+
+
     $destino = "";
     if(isset($_FILES['imagen']) && $_FILES['imagen']['name'] !=""){  
 
@@ -16,7 +19,7 @@
 
 
     // para la respuesta se usa el controlador que es el encargado directo de la base de datos 
-    $Respuesta = updateCard($_POST['card'],$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino);
+    $Respuesta = updateCard($_POST['card'],$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino,$_POST['select']);
 
 
     if(!$Respuesta){
