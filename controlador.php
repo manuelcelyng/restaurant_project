@@ -76,6 +76,7 @@ function comprobarSesion(){
 		if($_SESSION['auth'] == 0){
 		header("Location: menu.php");
 		}
+       
 	}
 	else{
 		header("Location: index.php?error=2");

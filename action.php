@@ -1,13 +1,10 @@
 <?php
 	//CRUD
-	//1. Create
-	if (isset($_GET['nuevo'])) {
-		header("Location: create.php");
-	}
+   // la acciond e crear se hace en el inicio.php 
 
     //2 actualizar
-    else if(isset($_GET['actualizar'])){
-        header("Location: update.php?card=".$_GET['card']);
+    if(isset($_GET['actualizar'])){
+        header("Location: inicio.php?card=".$_GET['card']);
     }
 
 	// LEER UNA CARTA
