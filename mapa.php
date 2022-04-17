@@ -1,3 +1,9 @@
+<?php
+
+    require_once "./controlador.php"
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,67 +40,60 @@
 </head>
 
 <body>
+      <div class="tittle text-center">
+        <br>
+		    <h1>Delicious</h1>
+        </div>
+	
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Bienvenidos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="menu.php">Menú</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorias
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="menu.php?categoria=Hamburguesas">Hamburguesas</a></li>
+            <li><a class="dropdown-item" href="menu.php?categoria=Perros">Perros</a></li>
+            <li><a class="dropdown-item" href="menu.php?categoria=Entradas">Entradas</a></li>
+            <li><a class="dropdown-item" href="menu.php?categoria=Bebidas">Bebidas</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href = "mapa.php">Ubicacion</a>
+        </li>
+      </ul>
+      <form class="d-flex" action ="menu.php" method="get">
+        <input class="form-control me-2" name="busqueda"type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
-    </div>
-  </section>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <div class="logo me-auto">
-        <h1><a href="index.html">Delicious</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <div class = "d-flex">
+        <a class="nav-link" href="./logout.php">logout</a>
       </div>
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
-          <li><a class="nav-link scrollto" href="#events">Events</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
-
+      
     </div>
-  </header><!-- End Header -->
+  </div>
+</nav>
+  
+ 
 
-  <div id="fondo-header"></div>
+  
+
+ 
 
   <div id="principal">
     <div id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
-          <li class="t1">Restaurantes</li>
+          <li class="t1"><h3>Restaurantes</h3></li>
           <li class="nav-item" onclick="rest(0)"><a class="sidebar-nav-item">Centro Comercial Sandiego</a></li>
           <li class="nav-item" onclick="rest(1)"><a class="sidebar-nav-item">El Tesoro Shopping Park</a></li>
           <li class="nav-item" onclick="rest(2)"><a class="sidebar-nav-item">Centrocomercial Santafé</a></li>
@@ -112,7 +111,7 @@
   <footer id="footer">
     <div class="container">
       <h3>Delicious</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <p>Una comida bien preparada tiene sabores delicados que hay que retener en la boca para apreciarlos</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -128,7 +127,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+       
       </div>
     </div>
   </footer><!-- End Footer -->
