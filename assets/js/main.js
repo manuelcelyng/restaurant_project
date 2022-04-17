@@ -247,12 +247,41 @@
 
 })()
 
+var clave;
+
 window.onload = function () {
   //UBICACION
   nav = navigator.geolocation;
   if(nav){
     nav.getCurrentPosition(visualizarPosicion,funcionError);
   }
+  document.getElementById("formu-login").addEventListener('submit', validarFormulario);
+  clave = document.getElementById('pass-login');
+  clave.onkeypress = restringirAlfaNume;
+}
+
+function validarFormulario(event) {
+  event.preventDefault();
+  var errorSpan = document.getElementById("formError-login");
+  var email = document.getElementById('email-login');
+  var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i;
+  if(!regEmail.test(email.value)) {
+    errorSpan.innerHTML = "El email es invalido, verifíquelo.<br>";
+    return;
+  }
+  var regPass = /^[A-Z0-9]+$/i;
+  if (clave.value.length < 8 || !regPass.test(clave.value)) {
+    errorSpan.innerHTML = "La contraseña debe tener minimo 8 caracteres alfa y/o numericos.<br>";
+    return;
+  }
+  this.submit();
+}
+
+function restringirAlfaNume(event){
+  var letra = String.fromCharCode(event.charCode);
+  var regLetra = /^[A-Z0-9]+$/i;
+  console.log(regLetra.test(letra));
+  return regLetra.test(letra)
 }
  
 var ubicaciones = [
