@@ -1,6 +1,8 @@
 <?php
 require_once "./controlador.php";
 
+    
+
 
 $Respuesta = getUser($_POST['user'],$_POST['pass']);
 
