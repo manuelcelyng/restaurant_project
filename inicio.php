@@ -1,5 +1,8 @@
 <?php
 	require_once "./controlador.php";
+
+	comprobarSesion();
+	
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +36,7 @@
 				<th>Nombre</th>
 				<th>Descripcion</th>
 				<th>Precio</th>
+				<th>Categoria</th>
 				<th>Imagen</th>
 				<th>Acciones</th>
 				</tr>
@@ -51,6 +55,7 @@
 							print("<td>".$Card['nombre']."</td>");
 							print("<td>".$Card['descripcion']."</td>");
 							print("<td>".$Card['precio']."</td>");
+							print("<td>".$Card['categoria']."</td>");
 							print("<td><img src='".$Card['imagen']."' width=150px></td>");
 							print("<td><input type='submit' name='borrar' value='Borrar'> <br>
 							<input type='submit' name='actualizar' value='Actualizar'>    <br>

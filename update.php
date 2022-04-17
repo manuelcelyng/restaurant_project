@@ -1,5 +1,6 @@
 <?php 
     require_once "./controlador.php";// se requiere el controlador porque llamare un metodo de esta
+    comprobarSesion();
 ?>
 <!DOCTYPE html>
 <head>
@@ -49,6 +50,21 @@
                     <span>Precio</span>
                     <input type="number" name="precio" value="<?php print($Card['precio'])?>" required><br>
             </label>
+            <br>
+            <label for="categorias">Categoria: </label>
+            <select name="select" id="categorias" required>
+                <option  selected value="<?php print($Card['categoria'])?>"><?php print($Card['categoria'])?></option>
+                <?php 
+                    $opciones = array("Hamburguesas","Bebidas","Perros","Entradas");
+                    
+                    foreach ($opciones as $opcion) {
+                        if($opcion != $Card['categoria']){
+                            print("<option value=".$opcion.">".$opcion."</option>");
+                        }
+                    }
+                ?>
+			</select>
+            <br>
 
             <!--AGREGO ESTE INPUT PARA TENER EL NAME DE LA IMAGEN anterior, y borrarla-->
             <input type="text" name="imagenAnterior" value="<?php print($Card['imagen'])?>" hidden>
