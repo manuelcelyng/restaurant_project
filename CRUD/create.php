@@ -1,11 +1,10 @@
 <?php
-
 	require_once "../controlador.php"; // llamo al controlador
-		
+	comprobarSesion();
 	$origen  = $_FILES['imagen']['tmp_name']; // origen de donde viene la imagen
 	$destino ="";
 	//$db = db::getDBConnection(); // obtengo la conexion y la instancia de esta
-	$respuesta = createCard($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino); // obtengo la respuesta de la base de datos al crear el elemento
+	$respuesta = createCard($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino,$_POST['select']); // obtengo la respuesta de la base de datos al crear el elemento
 	if($respuesta){
 		$Respuesta  = getCard($_POST['nombre']);
 		while($card =$Respuesta->fetch_assoc() ){
@@ -13,7 +12,7 @@
 		$destino = "images/".$card['id'].$_FILES['imagen']['name'];
 		}
 
-		$Respuesta = updateCard($_POST['nombre'],$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino);
+		$Respuesta = updateCard($_POST['nombre'],$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino,$_POST['select']);
 		// este else es porque se hizo correctamente la creacion de  el item 
     	move_uploaded_file($origen, "../".$destino); // carga el archivo en la carpeta 
 		header("Location: ../inicio.php");

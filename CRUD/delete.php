@@ -1,7 +1,7 @@
 <?php
 // incluimos el controlador 
     require_once "../controlador.php";
-
+    comprobarSesion();
     // probamos la sesion 
 
 
