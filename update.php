@@ -1,5 +1,6 @@
 <?php 
     require_once "./controlador.php";// se requiere el controlador porque llamare un metodo de esta
+    comprobarSesion();
 ?>
 <!DOCTYPE html>
 <head>
@@ -49,9 +50,28 @@
                     <span>Precio</span>
                     <input type="number" name="precio" value="<?php print($Card['precio'])?>" required><br>
             </label>
+            <br>
+            <label for="categorias">Categoria: </label>
+            <select name="select" id="categorias" required>
+                <option  selected value="<?php print($Card['categoria'])?>"><?php print($Card['categoria'])?></option>
+                <?php 
+                    $opciones = array("Hamburguesas","Bebidas","Perros","Entradas");
+                    
+                    foreach ($opciones as $opcion) {
+                        if($opcion != $Card['categoria']){
+                            print("<option value=".$opcion.">".$opcion."</option>");
+                        }
+                    }
+                ?>
+			</select>
+            <br>
 
-            <img src="<?php print($Card['imagen'])?>" width=200>
-			<label for="lname">Imagen:</label><br><input type="file" name="imagen"><br><br>
+            <!--AGREGO ESTE INPUT PARA TENER EL NAME DE LA IMAGEN anterior, y borrarla-->
+            <input type="text" name="imagenAnterior" value="<?php print($Card['imagen'])?>" hidden>
+            <!-- le mando el ID para actualizar la imagen con la nueva que se ponga-->
+            <input type="text" name="id" value="<?php print($Card['id'])?>" hidden>
+            <img src="<?php print($Card['imagen'])?>" width=200><br>
+			<label for="lname">Imagen:</label><input type="file" name="imagen"><br><br>
 				<?php }?>
 			
 			

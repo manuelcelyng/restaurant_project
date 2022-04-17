@@ -1,3 +1,8 @@
+<?php
+	require_once "./controlador.php";
+	comprobarSesion();
+	
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +24,7 @@
 		<?php
 		if(isset($_GET['error'])){
 			if($_GET['error']==1){
-				print("<p class='error'>No se logró guardar la nueva tarjeta. Verifique la información</p>");
+				print("<p class='error'>No se logró guardar el nuevo item. Verifique la información, no puede crear un nuevo item con el mismo nombre de otro.</p>");
 			}
 		}
 		?>
@@ -29,6 +34,15 @@
 			<label for="lname">Descripcion:</label><br><input type="text" name="descripcion" required><br>
 			<label for="lname">Precio:</label><br><input type="number" name="precio" required><br>
 			<label for="lname">Imagen:</label><br><input type="file" name="imagen" required><br><br>
+			<label for="categorias">Categoria: </label>
+			<select name="select" id="categorias" required>
+				<option value="">none</option>
+  				<option value="Hamburguesas">Hamburguesas</option>
+  				<option value="Bebidas">Bebidas</option>
+  				<option value="Perros">Perros</option>
+				<option value="Entradas">Entradas</option>
+			</select>
+			<br><br>
 			<input type="submit" value="Insertar">
 		</form>
 	</section>

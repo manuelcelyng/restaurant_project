@@ -2,7 +2,6 @@
 	//CRUD
 	//1. Create
 	if (isset($_GET['nuevo'])) {
-	    print("nuevo action: ".$_GET['card']);
 		header("Location: create.php");
 	}
 
@@ -10,6 +9,17 @@
     else if(isset($_GET['actualizar'])){
         header("Location: update.php?card=".$_GET['card']);
     }
+
+	// LEER UNA CARTA
+	else if(isset($_GET['detalles'])){
+		header("Location: CRUD/read.php?card=".$_GET['card']);
+	}
+
+	// BORRAR UNA CARTA
+	else if(isset($_GET['borrar'])){
+	
+		header("Location: CRUD/delete.php?card=".$_GET['card']."&imagen=".$_GET['imagen']);
+	}
 
 	else {
 		header("Location: inicio.php");
