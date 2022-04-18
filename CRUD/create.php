@@ -19,7 +19,7 @@
 
 	}
 	else{
-		header("Location: ../create.php?error=1");
+		header("Location: ../create.php?nuevo=Nuevo&error=1");
 	}
 
 	// obtengo el item creado para usar el ID en la creacion de la imagen
