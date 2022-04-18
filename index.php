@@ -30,6 +30,7 @@
 			border-radius:10px;
 			border:solid #4EA454;
 			text-align:center;height:450px;
+			margin-top: 5%;
 		}
 		#formSesion:hover{
 			box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
