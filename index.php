@@ -29,7 +29,7 @@
 			width:35%;
 			border-radius:10px;
 			border:solid #4EA454;
-			text-align:center;height:400px;
+			text-align:center;height:450px;
 		}
 		#formSesion:hover{
 			box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
@@ -119,21 +119,25 @@
 		?>
 	
 		<div style="margin-top:25%;" >
-		<label class="labelSesion">Nombre: </label><br><input class="inputSesion" type="text" name="user" required><br>
+		<label class="labelSesion" >Nombre: </label><br><input class="inputSesion" id="nombre-login" type="text" name="user"><br>
 		</div>
 
 		<div >
-		<label class="labelSesion">Contraseña:</label><br><input type="password" class="inputSesion" name="pass" required><br>
+		<label class="labelSesion" >Contraseña:</label><br><input type="password" id="pass-login" class="inputSesion" name="pass"><br>
 		</div>
 		<br>
 		<div>
-		<input class="btn btn-outline-success" type="submit" name="enviar" value="Login">
+		<input class="btn btn-outline-success" type="submit" name="enviar" value="Login"><br><br>
+		<span id="formError"></span>
 		</div>
 	
 	</form>
 
 </section>
+	
 
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>

@@ -147,8 +147,7 @@
 							print("<td>".$Card['categoria']."</td>");
 							print("<td><img src='".$Card['imagen']."' width=150px></td>");
 							print("<td><input type='submit' class= 'btn btn-outline-danger' name='borrar' value='Borrar'> <br>
-							<input type='submit' class= 'btn btn-outline-primary' name='actualizar' value='Actualizar'>    <br>
-							<input type='submit' class= 'btn btn-outline-info' name='detalles' value='Detalles'>  
+							<input type='submit' class= 'btn btn-outline-primary' name='actualizar' value='Actualizar'>  
 							</td>");
 							print("</form>");
 						

@@ -43,7 +43,7 @@
 		}
 
 		form{
-			width: 20%;
+			width: 35%;
 		}
 		#divRe:hover{
 			box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
@@ -58,7 +58,7 @@
 			
 		}
 		#divRe{
-			margin-top:10%;
+			margin-top:20%;
 			border-radius:10px;
 			border:solid ;
 			width: 100%;
@@ -129,14 +129,16 @@
 
 	<section id="cuadroSesion">
 	
-	<form action="registro.php" method="post">
+	<form action="registro.php" method="post" id="formu-reg">
 		<div id="divRe">
 		<a class="nav-link" href="./index.php">Iniciar Sesion</a>
 		<p class = "mensaje">Registro</p>	
-		<label>Nombre:	</label><br><input type="text" class ="inputSesion"  name="user" required><br><br>
-		<label>Contraseña:	</label><br><input type="password" class ="inputSesion"   name="pass" required><br><br>
-		<label>Correo:	</label><br><input type="email" class ="inputSesion"  name="email" required><br><br>
+		<label>Nombre:	</label><br><input type="text" class ="inputSesion"  name="user" id="nombre-reg"><br><br>
+		<label>Contraseña:	</label><br><input type="password" class ="inputSesion"   name="pass" id="pass-reg"><br><br>
+		<label>Correo:	</label><br><input type="email" class ="inputSesion"  name="email" id="email-reg"><br><br>
 		<input class="btn btn-outline-success"  type="submit" name="CrearUser" value="Enviar">
+		<br><br>
+		<span id="formError-reg"></span>
 	</div>
 	</form>
 	</section>
@@ -146,7 +148,8 @@
 
 
 
-
+	<!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
