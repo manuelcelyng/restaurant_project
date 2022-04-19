@@ -29,7 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeVjN0LIaKvMwl8t-o8wt_n90wQQ2ujME" async defer></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=" async defer></script>
 
   <!-- =======================================================
   * Template Name: Delicious - v4.7.1
